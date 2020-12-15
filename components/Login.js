@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { Button } from 'react-native-elements';
 import { FloatingLabelInput } from 'react-native-floating-label-input';

@@ -45,17 +45,9 @@ export default function SearchFlight(props) {
         .then(response => response.json())
         .then(responseJson => {
             if (responseJson != null && responseJson.airportsByCities != null && responseJson.airportsByCities.length > 0) {
-                let code = responseJson.airportsByCities[0].codeIataAirport;
-                if (code == null || code.length == 0) {
-                    setErrorCity(true);
-                    setCityList([]);
-                    setAirportsDropDownLabel(DEFAULT_AIRPORT_LIST_LABEL);
-                    return;
-                }
-                setCityCode(responseJson.airportsByCities[0].codeIataAirport);
                 let cityList = [];
                 responseJson.airportsByCities.forEach(element => {
-                    cityList.push({value: element.codeIataAirport, label: element.nameAirport + ' ' + element.nameCountry});
+                    cityList.push({value: element.codeIataAirport, label: element.nameAirport + ', ' + element.nameCountry});
                 });
                 setCityList(cityList);
                 setAirportsDropDownLabel('Choose airport (' + cityList.length + ' exist)');
